@@ -34,19 +34,23 @@
   background-color: white;
   margin: 0 2rem;
   border-radius: 0 0 30px 30px;
+  width: 22rem;
 
   @include media-tablet {
     margin: 0 20rem;
+    width: 40rem;
   }
 
   @include media-desktop {
     margin: 0 30rem;
-    padding: 5rem;
+    padding: 5rem 0;
+    width: 40rem;
   }
 
   &__title {
     font-size: 1.8rem;
     text-align: center;
+    text-transform: uppercase;
 
     @include media-tablet {
       font-size: 3rem;

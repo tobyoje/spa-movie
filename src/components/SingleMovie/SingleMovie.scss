@@ -1,0 +1,132 @@
+@use "../../styles/partials/responsive" as *;
+
+.singlemovie {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 250px;
+
+  @include media-tablet {
+    flex-direction: row;
+  }
+
+  &__image {
+    border-radius: 0.5rem;
+    border: 0.5px solid white;
+    object-fit: cover;
+    margin: 0 3rem;
+  }
+
+  &__info {
+    margin: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-tablet {
+      margin: 0 3rem;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__info-inner {
+    display: flex;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  &__date {
+    margin-right: 2rem;
+  }
+
+  &__media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 8rem;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  &__genre {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+
+    p {
+      margin-right: 1rem;
+    }
+  }
+
+  &__overview {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+
+    @include media-tablet {
+      text-align: left;
+    }
+  }
+
+  &__review {
+    margin: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 3rem;
+
+    @include media-tablet {
+      margin: 10rem 42rem 4rem 42rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__review-container {
+    background-color: black;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+  }
+
+  &__review-title {
+    margin-bottom: 3rem;
+
+    @include media-tablet {
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__review-date {
+    text-align: end;
+  }
+
+  &__author {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__content {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}
