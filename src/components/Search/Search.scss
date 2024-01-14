@@ -1,0 +1,193 @@
+@use "../../styles/partials/responsive" as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 4rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  @include media-tablet {
+    margin-bottom: 8rem;
+  }
+
+  &__icon {
+    height: 2.5rem;
+
+    @include media-tablet {
+      height: 3.5rem;
+    }
+
+    @include media-desktop {
+      height: 5.5rem;
+    }
+  }
+}
+
+.top-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: white;
+  margin: 0 2rem;
+  border-radius: 0 0 30px 30px;
+
+  @include media-tablet {
+    margin: 0 20rem;
+  }
+
+  @include media-desktop {
+    margin: 0 30rem;
+    padding: 5rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    text-align: center;
+
+    @include media-tablet {
+      font-size: 3rem;
+    }
+  }
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: white;
+  margin: 0 5rem;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 3rem;
+
+  @include media-tablet {
+    margin: 0 20rem 8rem 20rem;
+  }
+
+  @include media-desktop {
+    margin: 0 55rem 8rem 55rem;
+    padding: 5rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    text-align: center;
+
+    @include media-tablet {
+      font-size: 3rem;
+    }
+  }
+
+  input {
+    width: 22rem;
+    height: 4rem;
+    border-radius: 1.1rem;
+    border: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+
+    @include media-tablet {
+      width: 45rem;
+      height: 5.5rem;
+      border-radius: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 5rem;
+      font-size: 1.8rem;
+    }
+
+    &::placeholder {
+      color: grey;
+      letter-spacing: 0.1rem;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: center;
+    }
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.7rem;
+
+    @include media-tablet {
+      margin: 0 1.5rem;
+    }
+
+    label {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05rem;
+      color: white;
+    }
+
+    select {
+      width: 25rem;
+      height: 4rem;
+      border: 1.5px solid white;
+      background-color: var(--black);
+      color: white;
+      border-radius: 0.5rem;
+      padding: 0 1.5rem;
+      appearance: none;
+      background-image: url("../../assets/images/arrow-down.svg");
+      background-size: 2.4rem;
+      background-repeat: no-repeat;
+      background-position: calc(100% - 8px) center;
+
+      @include media-tablet {
+        width: 12rem;
+        height: 4rem;
+      }
+
+      @include media-desktop {
+        width: 20rem;
+        height: 4rem;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      width: 20rem;
+      height: 4rem;
+      border-radius: 1rem;
+      border: 0;
+      font-family: poppins;
+      font-size: 1.4rem;
+      letter-spacing: 0.05rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: black;
+    }
+  }
+}

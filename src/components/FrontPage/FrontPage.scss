@@ -1,0 +1,53 @@
+@use "../../styles/partials//responsive" as *;
+
+.apiform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  h1 {
+    margin-bottom: 4rem;
+    color: white;
+  }
+
+  input {
+    width: 22rem;
+    height: 4rem;
+    border-radius: 1.1rem;
+    border: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+
+    @include media-tablet {
+      width: 45rem;
+      height: 5.5rem;
+      border-radius: 2rem;
+      margin-bottom: 5rem;
+      font-size: 1.8rem;
+    }
+
+    &::placeholder {
+      color: grey;
+      letter-spacing: 0.1rem;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+  button {
+    width: 20rem;
+    height: 4rem;
+    border-radius: 1rem;
+    border: 0;
+    font-family: poppins;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: black;
+  }
+}

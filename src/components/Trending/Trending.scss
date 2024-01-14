@@ -1,0 +1,55 @@
+@use "../../styles/partials/responsive" as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 4rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  @include media-tablet {
+    margin-bottom: 8rem;
+  }
+
+  &__icon {
+    height: 2.5rem;
+
+    @include media-tablet {
+      height: 3.5rem;
+    }
+
+    @include media-desktop {
+      height: 5.5rem;
+    }
+  }
+}
+
+.top-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: white;
+  margin: 0 2rem;
+  border-radius: 0 0 30px 30px;
+
+  @include media-tablet {
+    margin: 0 20rem;
+  }
+
+  @include media-desktop {
+    margin: 0 30rem;
+    padding: 5rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    text-align: center;
+
+    @include media-tablet {
+      font-size: 3rem;
+    }
+  }
+}

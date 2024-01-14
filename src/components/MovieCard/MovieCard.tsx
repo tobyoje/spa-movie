@@ -4,6 +4,7 @@ import "./MovieCard.scss";
 interface singleMovie {
   id: number;
   name: string;
+  title: string;
   media_type: string;
   poster_path: string;
   first_air_date: string;
@@ -25,10 +26,10 @@ const MovieCard = ({ movie }: Props) => {
         />
 
         <div className="moviecard__details">
-          <h1>{movie.name}</h1>
+          <h1>{movie.name || movie.title}</h1>
           <p>{movie.vote_average} / 10</p>
           <div className="moviecard__type">
-            <p>{movie.media_type}</p>
+            <p>{movie.first_air_date ? "TV" : "Movie"}</p>
           </div>
         </div>
       </div>

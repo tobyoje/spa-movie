@@ -1,2 +1,9 @@
 @use "./styles/partials/resets" as *;
 @use "./styles/partials/responsive" as *;
+
+.app {
+  background-image: url(../src/assets/images/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
