@@ -63,6 +63,8 @@
   &__genre {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 1rem;
     font-size: 1.7rem;
     line-height: 2.5rem;
@@ -128,5 +130,10 @@
   &__content {
     font-size: 1.4rem;
     margin-bottom: 2rem;
+  }
+
+  &__dot {
+    margin-right: 1rem;
+    width: 0.6rem;
   }
 }

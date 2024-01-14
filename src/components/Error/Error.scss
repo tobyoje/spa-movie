@@ -1,0 +1,27 @@
+@use "../../styles/partials//responsive" as *;
+
+.apierror {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  h1 {
+    margin-bottom: 4rem;
+    color: white;
+  }
+
+  button {
+    width: 20rem;
+    height: 4rem;
+    border-radius: 1rem;
+    border: 0;
+    font-family: poppins;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: black;
+  }
+}

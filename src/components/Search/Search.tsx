@@ -14,6 +14,11 @@ interface Props {
   };
 }
 
+interface genreType {
+  id: number;
+  name: string;
+}
+
 const Search = () => {
   const apiKey = sessionStorage.getItem("apiKey");
   const [data, setData] = useState();
@@ -21,17 +26,18 @@ const Search = () => {
   const [moviesList, setMoviesList] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [searchInput, setSearchInput] = useState({
-    airDate: 0,
+    airDate: 2024,
     genre: "",
     mediatype: "tv",
   });
+  const [genreList, setGenreList] = useState<genreType[]>([]);
 
-  const tmdbBaseUrl = "https://api.themoviedb.org/3/discover/";
+  const tmdbBaseUrl = "https://api.themoviedb.org/3/";
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${tmdbBaseUrl}/${searchInput.mediatype}`,
+        `${tmdbBaseUrl}/discover/${searchInput.mediatype}`,
         {
           params: {
             api_key: apiKey,
@@ -51,16 +57,45 @@ const Search = () => {
     }
   };
 
+  const fetchGenres = async () => {
+    try {
+      const response = await axios.get(
+        `${tmdbBaseUrl}/genre/${searchInput.mediatype}/list`,
+        {
+          params: {
+            api_key: apiKey,
+          },
+        }
+      );
+
+      setGenreList(response.data.genres);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
+    fetchGenres();
   }, [searchInput, currentPage]);
   console.log(moviesList);
-  console.log(pageNumber);
+  console.log(genreList);
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
     const { name, value } = event.target;
     setSearchInput((prevState) => ({ ...prevState, [name]: value }));
     setCurrentPage(1);
+  };
+
+  const handleClearFilter = (event: React.FormEvent) => {
+    event.preventDefault();
+    setSearchInput({
+      airDate: 2024,
+      genre: "",
+      mediatype: "tv",
+    });
   };
 
   if (!data) {
@@ -108,31 +143,29 @@ const Search = () => {
               id="genre"
               name="genre"
             >
-              <option value="">Select</option>
-              <option value="28">Action</option>
-              <option value="12">Adventure</option>
-              <option value="16">Animation</option>
-              <option value="35">Comedy</option>
+              {genreList.map((genre) => (
+                <option key={genre.id} value={genre.id}>
+                  {genre.name}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="filter__option">
             <label htmlFor="airDate">Year</label>
-            <select
+
+            <input
               onChange={handleChange}
               value={searchInput.airDate}
+              placeholder="Input year"
               id="airDate"
               name="airDate"
-            >
-              <option value="">Select</option>
-              <option value="2003">2003</option>
-              <option value="2004">2004</option>
-              <option value="2005">2005</option>
-            </select>
+              type="text"
+            />
           </div>
 
           <div className="filter__option">
-            <button>Clear Filters</button>
+            <button onClick={handleClearFilter}>Clear Filters</button>
           </div>
         </form>
       </section>

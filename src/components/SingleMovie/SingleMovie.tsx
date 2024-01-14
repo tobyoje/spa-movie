@@ -4,6 +4,7 @@ import "./SingleMovie.scss";
 import { Link, useParams } from "react-router-dom";
 import homeIcon from "../../assets/images/home.svg";
 import searchIcon from "../../assets/images/search.svg";
+import dotIcon from "../../assets/images/dot.svg";
 
 interface singleMovie {
   id: number;
@@ -95,6 +96,7 @@ const SingleMovie = () => {
             <p className="singlemovie__date">
               {movie.first_air_date || movie.primary_release_year}
             </p>
+            <img className="singlemovie__dot" src={dotIcon} alt="Dot" />
             <p>{movie.vote_average} / 10</p>
           </div>
           <p className="singlemovie__media">
@@ -102,7 +104,12 @@ const SingleMovie = () => {
           </p>
           <div className="singlemovie__genre">
             {movie.genres.map((genre: { name: string }, index: number) => (
-              <p key={index}>{genre.name}</p>
+              <React.Fragment key={index}>
+                <p>{genre.name}</p>
+                {index < movie.genres.length - 1 && (
+                  <img className="singlemovie__dot" src={dotIcon} alt="Dot" />
+                )}
+              </React.Fragment>
             ))}
           </div>
           <p className="singlemovie__overview">{movie.overview}</p>

@@ -5,14 +5,13 @@ import "./Trending.scss";
 import homeIcon from "../../assets/images/home.svg";
 import searchIcon from "../../assets/images/search.svg";
 import { Link } from "react-router-dom";
+import Error from "../Error/Error";
 
 const Trending = () => {
   const apiKey = sessionStorage.getItem("apiKey");
-
   const [data, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [moviesList, setMoviesList] = useState([]);
-
   const tmdbBaseUrl = "https://api.themoviedb.org/3";
 
   const fetchData = async () => {
@@ -36,7 +35,7 @@ const Trending = () => {
   if (!data) {
     return (
       <>
-        <p>loading..</p>
+        <Error />
       </>
     );
   }
